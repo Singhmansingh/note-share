@@ -1,0 +1,19 @@
+{
+  "id": "note-share",
+  "title": "Note Share",
+  "description": "A module to share notes between player neighbors",
+  "authors": [
+    {
+    "name": "Singhmansingh"
+    }
+  ],
+  "esmodules":[
+    "esmodules/sharer.mjs"
+  ],
+  "socket":true,
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "11"
+  }
+}

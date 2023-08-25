@@ -1,0 +1,17 @@
+<form class="flexcol">
+    <div class="form-group">
+        <label>Title:</label><input type="text" name="title">
+    </div>
+    <div class="form-group">
+        <label>To:</label>
+        <select name="to">
+            {{#each users as |user id|}}
+                <option value="{{user.name}}">{{user.name}}{{#if user.isGM}} (GM){{/if}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Message:</label>
+        <textarea name="message"></textarea>
+    </div>
+</form>
