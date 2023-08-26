@@ -15,5 +15,7 @@
   "compatibility": {
     "minimum": "10",
     "verified": "11"
-  }
+  },
+  "manifest": "https://raw.githubusercontent.com/Singhmansingh/note-share/master/module.json",
+  "download": "https://raw.githubusercontent.com/Singhmansingh/note-share/master/note-share.zip"
 }
