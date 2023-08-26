@@ -45,6 +45,17 @@ async function initSettings(){
             Hooks.call("noteshareSettingsUpdate",value);
         }
     });
+
+    await game.settings.register("note-share","titleTemplates", {
+        name:"Titles templates",
+        hint:"Adds a template to select for a title. seperate prompts with a |.",
+        scope:"world",
+        config:true,
+        type:String,
+        onChange: value => {
+            Hooks.call("noteshareSettingsUpdate",value);
+        }
+    });
 }
 
 
@@ -85,7 +96,11 @@ async function createNote(){
 
     const users=game.users; // change to global circle
 
-    const template = await renderTemplate(noteTempPath, { users });
+    var titleTemplates=game.settings.get('note-share','titleTemplates');
+    var titles=[];
+    if(titleTemplates) titles=titleTemplates.split('|');
+
+    const template = await renderTemplate(noteTempPath, { users ,titles});
 
     new Dialog({
         title: "New Sharable Note",
