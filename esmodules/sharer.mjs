@@ -107,7 +107,7 @@ async function createNote(){
         content: template,
         buttons:{
             send: {
-                icon:'<i class="fas fa-check"></i>',
+                icon:'<i class="fas fa-send"></i>',
                 label:'Send',
                 callback: async (html) => {   
                     let title = html.find('[name="title"]').val();
@@ -139,10 +139,11 @@ async function createNote(){
 }
 
 function renderNoteButton(html){
-    if(html.attr('id')!='journal') return;
-    let actionbuttons = html.find('.header-actions.action-buttons');
-    let noteButton = $('<button><i class="fas fa-note"></i>&nbsp;New Shareable</button>');
+    //if(html.attr('id')!='journal') return;
+    let icon ='fas fa-share-square';
+    let actionbuttons = html.find('.chat-control-icon');
+    let noteButton = $('<a class="note-share-button" style="flex:0;flex-shrink:1;padding: 0 6px;" class="hover"><i class="'+icon+'"></i></a>');
     noteButton.on('click',()=> { createNote() });
-    actionbuttons.append(noteButton);
+    actionbuttons.before(noteButton);
 }
 
